@@ -6,10 +6,6 @@
 We don’t want people to bring their own switches and connect them to our network. Port security will prevent this from happening by locking the interface to only 'talk' to a specified mac address. Anything else will shutdown the interface.
 
 ---
-## Configure port security
-> [!info] Commands
-> [[Cisco Commands#Port Security]]
-
 ## Disabled State
 When we send traffic through the secured port on an excluded mac the port goes in `err-disable` state.
 ```
@@ -31,6 +27,11 @@ Security Violation Count   : 1
 S1# show interfaces f0/1
 FastEthernet0/1 is down, line protocol is down (err-disabled)
 ```
+### Options
+```
+S1(config-if)# switchport port-security ?
+```
+
 
 ### Fix disabled state
 To get the interface out of the `err-disabled` state, you need to type `shutdown` followed by `no shutdown`.

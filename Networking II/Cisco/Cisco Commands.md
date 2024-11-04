@@ -18,6 +18,10 @@ enclose content in `#...#`
 ```
 S1(config)# banner motd #admins only - no touchi bitch#
 ```
+#### Disable DNS lookup
+```
+S1(config)# no ip domain-lookup
+```
 #### set VTY
 sets amount of sessions
 ```
@@ -467,6 +471,7 @@ S1(config-if)# switchport port-security maximum 1
 S1(config-if)# switchport port-security mac-address aaaa.bbbb.cccc
 ```
 `switchport port-security maximum 1` makes it so only 1 mac address is allowed.
+If returns `Command rejected: port is dynamic`, run `switchport mode access`
 #### Fix disabled interface
 - only doing `no shutdown` **will not work**
 ```
@@ -517,4 +522,36 @@ S1(config)#logging trap informational
 R1#show logging | include Log Buffer
 ```
 
+
+
+
+# make notes - temp
+```
+show mac address-table dynamic
+--
+HSRP / FHRP
+--
+dhcp snooping
+Note: DHCP snooping is required by Dynamic ARP Inspection (DAI)
+--
+arp inspection
+--
+configure PortFast
+--
+Spanning-Tree + summary
+--
+Portfast & BPDU Guard notes
+```
+
+# skills test
+```
+trunking
+etherchannel lacp OR pagp
+encapsulation
+setting ip address
+set native vlan
+switchport mode trunk native vlan 10,20,30
+create sub interfaces
+create & set vlans
+```
 
