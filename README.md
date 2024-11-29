@@ -1,2 +1,2 @@
-# Networking II - scc-mit403-24f
+# Notes for st.Clair
 My notes for st.clair 
