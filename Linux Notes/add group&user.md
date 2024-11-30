@@ -1,0 +1,4 @@
+
+* useradd
+* groupadd
+* passwd
