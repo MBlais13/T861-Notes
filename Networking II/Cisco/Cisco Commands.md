@@ -543,7 +543,7 @@ Spanning-Tree + summary
 Portfast & BPDU Guard notes
 ```
 
-# skills test
+# skills test 1
 ```
 trunking
 etherchannel lacp OR pagp
@@ -554,4 +554,17 @@ switchport mode trunk native vlan 10,20,30
 create sub interfaces
 create & set vlans
 ```
+
+# skills test 2
+```
+Create DHCP pools and configure them
+Set excluded DHCP addresses
+Set default and static routes
+Enable port security and configure some settings
+Remote into a WLC, and create a WLAN, DHCP, and Interface
+Connect a host to a wireless network
+```
+[[#DHCP v4]]
+[[#Routing]]
+[[#Port Security]]
 
