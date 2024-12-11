@@ -18,8 +18,6 @@
 > Test 2:
 > Final Test 3: 5, 9, 11 & 12
 
-Just use ChatGPT or something to get the answers and explanation.
-
 ---
 
 # Module 5
