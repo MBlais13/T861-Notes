@@ -336,6 +336,7 @@ R1(config-router)# network 192.168.23.0 0.0.0.255 area 0
 network 192.168.23.0 0.0.0.255
 router-id 1.1.1.1
 
+---
 # do clear ip ospf process
 ```
 #### Change default timers
@@ -344,6 +345,14 @@ R1(config)# interface fastEthernet 1/0
 R1(config-if)# ip ospf hello-interval 5
 R1(config-if)# ip ospf dead-interval 15
 ```
+## Reference Bandwidth
+Use the `**auto-cost reference-bandwidth**` command and specify the value you want in Mbps.
+```
+R1(config-router)#auto-cost reference-bandwidth 1000
+
+#show ip ospf | include Reference
+```
+
 
 ## Authentication
 ```
@@ -353,7 +362,6 @@ R1(config-if)# ip ospf message-digest-key 1 md5 mykey
 
 R1(config-if)# router ospf 1
 R1(config-router)# area 0 authentication
-
 ```
 ## Show Commands
 ```
@@ -361,6 +369,8 @@ R1(config-router)# area 0 authentication
 # show ip ospf interface g0/0
 # show ip protocols
 # show ip route ospf
+
+# show ip ospf | include Reference
 ```
 # [[Etherchannel]]
 ## Setup
