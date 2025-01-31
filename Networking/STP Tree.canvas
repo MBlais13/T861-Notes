@@ -1,0 +1,17 @@
+{
+	"nodes":[
+		{"id":"d9b13395dacf1e16","type":"text","text":"Listening\n- forward delay = 15s","x":240,"y":-305,"width":240,"height":100},
+		{"id":"e539831e9f825178","type":"text","text":"Learning\n- forward delay = 15s","x":680,"y":-305,"width":240,"height":100},
+		{"id":"12caf1f9107a46b6","type":"text","text":"Forwarding","x":1120,"y":-305,"width":200,"height":100},
+		{"id":"ee681ce1914d44d6","type":"text","text":"Blocking\n- in blocking state until STP determines if port is root or designated","x":240,"y":-140,"width":240,"height":180},
+		{"id":"1e360a2c331a001f","type":"text","text":"Link comes UP","x":240,"y":120,"width":240,"height":100},
+		{"id":"c1deb8d421ff8b07","type":"text","text":"Blocking\n* no BPDU received\n* max age = 20s","x":-160,"y":-310,"width":220,"height":110}
+	],
+	"edges":[
+		{"id":"3d80ad65c3eae3d7","fromNode":"c1deb8d421ff8b07","fromSide":"right","toNode":"d9b13395dacf1e16","toSide":"left"},
+		{"id":"4c546f5ab76c38f2","fromNode":"d9b13395dacf1e16","fromSide":"right","toNode":"e539831e9f825178","toSide":"left"},
+		{"id":"4b944c107ac405e2","fromNode":"e539831e9f825178","fromSide":"right","toNode":"12caf1f9107a46b6","toSide":"left"},
+		{"id":"f45a83c021e6854d","fromNode":"1e360a2c331a001f","fromSide":"top","toNode":"ee681ce1914d44d6","toSide":"bottom"},
+		{"id":"f3a57e9c52757f4d","fromNode":"ee681ce1914d44d6","fromSide":"top","toNode":"d9b13395dacf1e16","toSide":"bottom"}
+	]
+}
