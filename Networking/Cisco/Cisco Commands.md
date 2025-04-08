@@ -29,6 +29,7 @@ line vty 0 4
 ```
 #### logging synchronous (escape translation)
 Prevent incorrect commands, stop cli feed from writing over your input.
+`(control+shift+6)`
 ```
 S1(config)# line console 0
 S1(config-line)# logging synchronous
@@ -75,7 +76,7 @@ R1# show clock
 R1# show calendar
 ```
 
-
+---
 # [[Remote Connection]]
 #### Setup SSH
 ```
@@ -123,10 +124,10 @@ S1(config-line)# exit
 Most basic login, asks for username & password on `Switch>` initial connection screen.
  `login local` command tells the switch to refer to a local database of usernames and passwords for authentication.
 ```
-S1(config)#line console 0
-S1(config-line)#login local
-S1(config-line)#exit
-S1(config)#username admin password cisco
+S1(config)# line console 0
+S1(config-line)# login local
+S1(config-line)# exit
+S1(config)# username admin password cisco
 ```
 ## Verify info
 ```
@@ -149,7 +150,7 @@ S1(config)# ip route 10.1.1.0 255.255.255.0 g0/1
 S1(config)# ip route 10.1.1.0 255.255.255.0 192.168.1.1
 ```
 ==are these two ^(above) v(below) the same? why do I have both ip route and next hop?== 
-#### Configure interface next hop
+#### Configure interface next hop (static route)
 `ip route`, `destinationNetworkIP`, `subnetMaskofDestination`, `nextHopIP`
 ```
 S1(config-if)# interface S0/2/0
@@ -179,10 +180,9 @@ S1(config-if)# exit
 ```
 ## Show routing commands
 ```
-S1# show interface brief
-S1(config-if)# show ip interface brief
-S1(config-if)# show ip route
-S1(config)# show mac-address-table
+S1# show ip interface brief
+S1# show ip route
+S1# show mac-address-table
 ```
 
 
@@ -230,6 +230,10 @@ IP address          Client-ID/	 	    Lease expiration        Type
                     6330.372e.3132.3265.
                     2e30.3030.302d.4661.
                     302f.30
+```
+
+```
+R1# show run | include default-gateway
 ```
 
 
@@ -307,9 +311,10 @@ This is used in [[Cisco Commands#Trunks]].
 #### Change an encapsulation
 ```
 S1(config)# int f0/1
-S1(config-if)# encapsulation dot1q 10
----
 S1(config-if)# switchport trunk encapsulation dot1q
+---
+S1(config)# int f0/1.10
+S1(config-subif)# encapsulation dot1q 10
 ```
 ## Show Encapsulation info
 #### Show current encapsulation type
@@ -329,12 +334,11 @@ S1(config-if)# switchport trunk encapsulation ?
 
 # [[OSPF]]
 ## Basic Setup
+a `wildcard mask` is the inverse of the `network mask`
 ```
 R1(config)# router ospf 10
 R1(config-router)# network 192.168.23.0 0.0.0.255 area 0
-
-network 192.168.23.0 0.0.0.255
-router-id 1.1.1.1
+R1(config-router)# router-id 1.1.1.1
 
 ---
 # do clear ip ospf process
@@ -345,16 +349,15 @@ R1(config)# interface fastEthernet 1/0
 R1(config-if)# ip ospf hello-interval 5
 R1(config-if)# ip ospf dead-interval 15
 ```
-## Reference Bandwidth
+#### Reference Bandwidth
 Use the `**auto-cost reference-bandwidth**` command and specify the value you want in Mbps.
 ```
-R1(config-router)#auto-cost reference-bandwidth 1000
+R1(config-router)# auto-cost reference-bandwidth 1000
 
-#show ip ospf | include Reference
+# show ip ospf | include Reference
 ```
 
-
-## Authentication
+#### Authentication
 ```
 R1(config)# interface fastEthernet 1/0
 R1(config-if)# ip ospf authentication message-digest
@@ -362,6 +365,12 @@ R1(config-if)# ip ospf message-digest-key 1 md5 mykey
 
 R1(config-if)# router ospf 1
 R1(config-router)# area 0 authentication
+```
+#### Cost
+```
+R1(config)# interface GigabitEthernet0/0
+R1(config-if)# ip address 192.168.12.1 255.255.255.0
+R1(config-if)# ip ospf cost 10
 ```
 ## Show Commands
 ```
@@ -502,8 +511,72 @@ Port        Vlans in spanning tree forwarding state and not pruned
 Fa0/14      50
 ```
 
+# ACL's
+## Standard access-list
+only permits traffic from network 192.168.12.0 /24
+This is a single `permit` entry, there will be a `deny any` by default when this is created.
+```
+R2(config)# access-list 1 permit 192.168.12.0 0.0.0.255
+-- apply this access list to an interface
+R2(config)# interface g0/0
+R2(config-if) #ip access-group 1 in
+```
+## Extended access-list
+```
 
+```
+## Troubleshoot
+```
+R2# show ip interface g0/0
+R2# show access-list
+```
+# [[NAT]]
+### Configure Static NAT
+```
+R1(config)# interface serial 0/1/0
+R1(config-if)# ip address 192.168.1.2 255.255.255.252
+R1(config-if)# ip nat inside
 
+R1(config)# interface serial 0/1/1
+R1(config-if)# ip address 209.165.200.1 255.255.255.252
+R1(config-if)# ip nat outside
+
+R1(config)# ip nat inside source static 192.168.10.254 209.165.201.5
+```
+### Configure Dynamic NAT
+```
+R1(config)# interface serial 0/1/0
+R1(config-if)# ip nat inside
+R1(config-if)# interface serial 0/1/1
+R1(config-if)# ip nat outside
+
+R1(config)# ip nat pool NAT-POOL 209.165.200.226 209.165.200.240 netmask 255.255.255.224
+R1(config)# access-list 1 permit 192.168.0.0 0.0.255.255
+R1(config)# ip nat inside source list 1 pool NAT-POOL1
+```
+
+### Configure PAT
+`overload` means include port addresses
+```
+R1(config)# ip nat inside source list 1 interface serial 0/1/0 overload
+R1(config)# access-list 1 permit 192.168.0.0 0.0.255.255
+
+R1(config)# interface serial 0/1/1
+R1(config-if)# ip nat inside
+
+R1(config)# interface serial 0/1/0
+R1(config-if)# ip nat outside
+```
+### Show/Verify NAT Info
+```
+R1# show ip nat translations
+R1# show ip nat translation verbose
+R1# show ip nat statistics
+--
+R1# clear ip nat translation *
+R1# clear ip nat statistics
+```
+---
 # [[Port Security]]
 ## Setup
 #### Enable port security
@@ -534,7 +607,7 @@ S1# show port-security addresss
 # Logs and Monitoring
 
 ## [[RMON]]
-### Start RMON
+`### Start RMON
 Cannot enable it on SVI (switch virtual interface) interfaces.
 ```
 S1(config-if)# rmon collection history 1 interval 5
@@ -568,49 +641,20 @@ R1#show logging | include Log Buffer
 
 
 
-
-# make notes - temp
+# [[CDP]]
+### CDP Usage
+show CDP
 ```
-show mac address-table dynamic
---
-HSRP / FHRP
---
-dhcp snooping
-Note: DHCP snooping is required by Dynamic ARP Inspection (DAI)
---
-arp inspection
---
-configure PortFast
---
-Spanning-Tree + summary
---
-Portfast & BPDU Guard notes
---
-** Configuring OSPF | Done?
+S1(config)# cdp run
 ```
 
-# net2 - skills test 1
+view CDP
 ```
-trunking
-etherchannel lacp OR pagp
-encapsulation
-setting ip address
-set native vlan
-switchport mode trunk native vlan 10,20,30
-create sub interfaces
-create & set vlans
+S1# show cdp neighbors detail
 ```
 
-# net2 - skills test 2
-```
-Create DHCP pools and configure them
-Set excluded DHCP addresses
-Set default and static routes
-Enable port security and configure some settings
-Remote into a WLC, and create a WLAN, DHCP, and Interface
-Connect a host to a wireless network
-```
-[[#DHCP v4]]
-[[#Routing]]
-[[#Port Security]]
+---
+
+# Troubleshooting
+
 
