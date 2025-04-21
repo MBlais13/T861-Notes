@@ -1,5 +1,17 @@
 
-# CheatSheet
+> [!info] apps for vm
+> ranger - file explorer
+> glow - markdown files
+
+```table-of-contents
+title: **Table Of Contents:**
+style: nestedList # TOC style (nestedList|nestedOrderedList|inlineFirstLevel)
+minLevel: 0 # Include headings from the specified level
+maxLevel: 2 # Include headings up to the specified level
+includeLinks: true # Make headings clickable
+hideWhenEmpty: false # Hide TOC if no headings are found
+debugInConsole: false # Print debug info in Obsidian console
+```
 
 ```bash
 evans stuff = /home/student
