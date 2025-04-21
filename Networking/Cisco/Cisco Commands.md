@@ -521,6 +521,7 @@ R2(config)# access-list 1 permit 192.168.12.0 0.0.0.255
 R2(config)# interface g0/0
 R2(config-if) #ip access-group 1 in
 ```
+
 ## Extended access-list
 ```
 
@@ -657,4 +658,91 @@ S1# show cdp neighbors detail
 
 # Troubleshooting
 
+- `tracert` on pc to find the furthest device discoverable.
+- telnet onto device and perform CDP commands to find neighbours.
+- show ip interfaces to find out what subnets the device is connected to.
+- 
+
+---
+
+# make notes - temp
+```
+show mac address-table dynamic
+--
+HSRP / FHRP
+--
+dhcp snooping
+Note: DHCP snooping is required by Dynamic ARP Inspection (DAI)
+--
+arp inspection
+--
+configure PortFast
+--
+Spanning-Tree + summary
+--
+Portfast & BPDU Guard notes
+--
++Configure NAT (static nat + others)
+```
+
+**ACL**
+**standard**
+range = standard 1-99
+standard deny or permits only based on source
+for standard acl put it the furthest away from source (as close to the destination as possible)
+```
+R2(config)# access-list 1 deny host 192.168.12.22
+```
+apply to interface
+```
+R2(config)# interface g0/0
+R2(config-if) #ip access-group 1 out
+```
+`out` meaning when traffic tries to exit that interface
+
+**extended**
+`permit ip` means permit any traffic type
+put as close as possible to the source
+range = extended 100-199
+```
+R2(config)# access-list 100 deny tcp <from network> 0.0.0.255 host <host ip address> 0.0.0.255
+
+R2(config)# access-list 100 permit ip any
+```
+
+---
+## net2 - skills test 1
+```
+trunking
+etherchannel lacp OR pagp
+encapsulation
+setting ip address
+set native vlan
+switchport mode trunk native vlan 10,20,30
+create sub interfaces
+create & set vlans
+```
+
+## net2 - skills test 2
+```
+Create DHCP pools and configure them
+Set excluded DHCP addresses
+Set default and static routes
+Enable port security and configure some settings
+Remote into a WLC, and create a WLAN, DHCP, and Interface
+Connect a host to a wireless network
+```
+[[#DHCP v4]]
+[[#Routing]]
+[[#Port Security]]
+
+
+## Skills test 1
+- set router ID
+- set passive interfaces - does not tell you which ones to set... figure out which ones should be set..
+- block a network / allow a network
+- set ACL
+- port address translation (overload)
+- configure OSPF 
+- create default static route (the one connecting to the ISP (pointing to the ISP))...(advertise static route)
 
