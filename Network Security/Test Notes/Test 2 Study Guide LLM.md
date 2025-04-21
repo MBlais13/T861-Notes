@@ -5,13 +5,13 @@ Firewall
 - Rule based firewall
 - Policy based firewall
 - Content/url filtering firewall 
-———
+-
 Allow
 Bypass
 Deny
 Force allow
 Log only
-———
+-
 Honeypot
 honeynet
 IDS & IPS
@@ -25,28 +25,28 @@ Pin method - push button method, no lockout method for pins
 WPA uses TKIP for encryption now depreciated
 WPA2 uses AES which is stronger and secure
 Load balancing 
-—
+-
 Saas - software as a service
 iaas - infostructure as a service
 Paas platform as a service
 Xaas - anything as a service
-—
+-
 Hypervisor
 Type one & two
-————
+-
 Active scanning
 Passive scanning
 Internal vulnerability scan
 External vulnerability scan
 Identifying at-risk systems
-—
+-
 False positive
 False negative
-—
+-
 Audits
-—
+-
 Passive reconnaissance 
-—
+-
 Business	continuity
 Business	continuity planning
 - A document for a company to maintain its operations and services during and after a disaster or disruption.
@@ -54,28 +54,28 @@ Disaster recovery plan (DRP)
 Uninterruptible power supply (UPS)
 Off-line UPS - switches to battery when primary fails
 On-line UPS - battery always on
-—
+-
 Hot site - fully equipped
 Warm site - has equipment but does not have current active internet or data
 Cold site - provides space but client must still provide and install the equipment 
-—
+-
 degaussing
 Sanitize HDD
-—
+-
 Change management 
 Risk management (exposure to different types of danger)
 Risk awareness
-—
+-
 Note the difference between
 - Qualitative risk assessment
 	educated guess
 - Quantitative risk assessment
 	hard facts
-—
+-
 ARO - annualized rate of occurrence
 ALE
 SLE
-—
+-
 
 
 ---
