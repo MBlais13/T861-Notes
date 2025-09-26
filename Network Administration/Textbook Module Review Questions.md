@@ -18,6 +18,8 @@
 > Test 2:
 > Final Test 3: 5, 9, 11 & 12
 
+Just use ChatGPT or something to get the answers and explanation.
+
 ---
 
 # Module 5
@@ -43,7 +45,7 @@
 
 5. **You wish to grant a specific user the ability to view the read-only attribute on files within a particular folder on the system, but do not wish to grant any other access. What advanced permission should you assign to this user?**  
    a. Traverse folder/execute file  
-   b. Read attributes  
+   - [ ] b. Read attributes 
    c. Read extended attributes  
    d. Read permissions  
 

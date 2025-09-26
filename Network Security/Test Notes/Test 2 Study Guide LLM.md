@@ -129,7 +129,7 @@ Pay very close attention to the wording of these questions.
 *   **IaaS (Infrastructure as a Service):** Provides virtualized computing resources (servers, storage, networking) (e.g., AWS EC2, Azure Virtual Machines).
 *   **PaaS (Platform as a Service):**  Provides a platform for developing and deploying applications (e.g., Google App Engine, Heroku).
 *   **XaaS (Anything as a Service):** A broad term encompassing all cloud service models.
-
+ 
 #### 4. Hypervisors
 
 *   **Hypervisor:** Software that creates and manages virtual machines.
