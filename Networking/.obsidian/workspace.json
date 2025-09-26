@@ -1,0 +1,207 @@
+{
+  "main": {
+    "id": "c2b630bcd68b5743",
+    "type": "split",
+    "children": [
+      {
+        "id": "7536b06537856808",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "84e3aecf429ae300",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Port Numbers.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "a56d1c1e796db33e",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "security/Physical Security.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "06de06aee2f01b42",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "HTTP and HTTPS.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          }
+        ],
+        "currentTab": 1
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "3661ae0d694f16fe",
+    "type": "split",
+    "children": [
+      {
+        "id": "9008e68f7fc80314",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "e92d0167c3f46a7d",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "198a0640d48d34ed",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "cb57abf21dff2158",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {}
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 200
+  },
+  "right": {
+    "id": "090b4a7fc6d23155",
+    "type": "split",
+    "children": [
+      {
+        "id": "3b68417635bd60ca",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "7bfe0bc700a16aad",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "security/Physical Security.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "ffeba542437c242e",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "security/Physical Security.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "cd9a88074767d30d",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true
+              }
+            }
+          },
+          {
+            "id": "2b3045dd830b4e27",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "security/Physical Security.md"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false
+    }
+  },
+  "active": "a56d1c1e796db33e",
+  "lastOpenFiles": [
+    "Cisco/all commands.md",
+    "Cisco/Commands for midterm.md",
+    "Networking/IPV4/Subnetting Without Calculator.md",
+    "Networking/IPV4/address type.md",
+    "security/Types of Malware.md",
+    "access attacks.md",
+    "Untitled 1.md",
+    "Untitled.md",
+    "security/Physical Security.md",
+    "Port Numbers.md",
+    "security",
+    "HTTP and HTTPS.md",
+    "RJ45 Pinout.md",
+    "DHCP Operation.md",
+    "Protocol suits.md",
+    "Cisco/IPV6 links.md",
+    "Networking/IPV4/ipv4 format.md",
+    "TLDR.md",
+    "Networking/Message timing.md",
+    "network.md",
+    "Cisco/cc.md",
+    "Untitled.canvas",
+    "Networking/IPV6/ipv6 format.md",
+    "Number of Hosts.md",
+    "[ipv4 format.md",
+    "Networking",
+    "Networking/IPV6",
+    "Cisco",
+    "Welcome.md",
+    "Networking/IPV4"
+  ]
+}

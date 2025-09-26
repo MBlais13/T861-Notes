@@ -83,7 +83,6 @@ Which of the following will you consider as a correct statement?
 - [ ]  D. Using a honeypot allows one to identify threat actor techniques and divert them from legitimate servers.
 
 Answer: B. Using a honeypot allows one to detect any intrusion to the enterprise network by threat actors and divert them from sensitive servers.
-
 Correct Answer: D. Using a honeypot allows one to identify threat actor techniques and divert them from legitimate servers.
 
 ---
