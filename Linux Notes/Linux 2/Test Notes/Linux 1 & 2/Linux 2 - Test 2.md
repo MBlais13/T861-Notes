@@ -13,6 +13,10 @@ hideWhenEmpty: false # Hide TOC if no headings are found
 debugInConsole: false # Print debug info in Obsidian console
 ```
 
+```bash
+evans stuff = /home/student
+```
+
 ## Apache
 - **Install Apache & PHP:**
   ```bash
@@ -289,8 +293,8 @@ $TTL 86400
 
   IN NS main.mike.com.
   IN MX 10 mail.mike.com.
-www IN A 10.0.0.14
-mail IN A 10.0.0.14
+  www IN A 10.0.0.14
+  mail IN A 10.0.0.14
 ```
 #### /etc/hosts Entry:
 ```conf

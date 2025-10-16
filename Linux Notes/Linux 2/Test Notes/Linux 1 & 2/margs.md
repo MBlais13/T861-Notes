@@ -1,4 +1,5 @@
 
+```
 
 **MariaDB**
 Secure installation and add password: mysql_secure_installation
@@ -397,3 +398,4 @@ mount -o rw 172.16.125.128:/shared /mount/shared
 SELinux:
 chcon -t samba_share_t {path} 	- allow samba with SELinux
 restorecon -v {path} 			– reset SELinux context on your folder specified
+```

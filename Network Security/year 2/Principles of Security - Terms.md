@@ -66,7 +66,7 @@ Less outward facing services the less 'surface area' you have.
 	- Respond
 	- Recover
 - Implementation tiers
-	- 
+	
 - Profiles
 ### Regulations
 - Broadly applicable regulations

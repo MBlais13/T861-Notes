@@ -17,10 +17,10 @@
 ---
 ## Create Array
 ```
-
+array = (one two three)
 ```
 
-## Arrays cont.
+## Arrays continued
 * To access elements of an array you can use the following syntax
 	* `${arrayName[0]} `= first element
 	* `${arrayName[1]}` = second elements
